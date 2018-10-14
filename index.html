@@ -37,11 +37,11 @@
         
     // };
 
-    if (window.Event) {
-    document.captureEvents(Event.MOUSEMOVE);
-    }
+    // if (window.Event) {
+    // document.captureEvents(Event.MOVE);
+    // }
     document.onmousemove = getCursorXY;
-    document.ontouchmove = getCursorXY;
+    document.addEventListener("touchmove", getCursorXY, false);
 
     var Bat,
             bats = [],
