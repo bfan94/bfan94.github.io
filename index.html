@@ -30,6 +30,10 @@
         document.getElementById('cursorX').value = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
         document.getElementById('cursorY').value = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
     }
+    function getTouchXY(e) {
+        document.getElementById('cursorX').value = (window.Event) ? e.pageX : event.changedTouches[-1].clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+        document.getElementById('cursorY').value = (window.Event) ? e.pageY : event.changedTouches[-1].clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+    }
 
    function autorun(options)
    {
@@ -41,7 +45,7 @@
     // document.captureEvents(Event.MOVE);
     // }
     document.onmousemove = getCursorXY;
-    document.addEventListener("touchmove", getCursorXY, false);
+    document.addEventListener("touchmove", getTouchXY, false);
 
     var Bat,
             bats = [],
